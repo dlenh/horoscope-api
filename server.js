@@ -5,8 +5,6 @@ const PORT = 8000;
 
 app.use(cors());
 
-arr = ["rooster", "dog", "pig", "rat", "ox", "tiger", "rabbit", "dragon", "snake", "horse", "goat", "monkey"];
-
 const zodiac = {
     "rat": {
         "compatible": ["dragon", "monkey", "rat"],
