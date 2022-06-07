@@ -1,6 +1,6 @@
 document.querySelector("button").addEventListener("click", apiRequest);
 
-arr = ["monkey", "rooster", "dog", "pig", "rat", "ox", "tiger", "rabbit", "dragon", "snake", "horse", "goat"];
+arr = ["Monkey", "Rooster", "Dog", "Pig", "Rat", "Ox", "Tiger", "Rabbit", "Dragon", "Snake", "Horse", "Goat"];
 
 function apiRequest() {
     const year = document.querySelector("input").value
