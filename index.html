@@ -8,11 +8,16 @@
 </head>
 <body>
     <h1>What year were you born?</h1>
-    <form onsubmit="return apiRequest();">
+    <form onclick="return apiRequest();">
         <input type="text">
         <button>Submit</button>
     </form>
-    <h2></h2>
+    <h2 id="zodiac"></h2>
+    <h2 id="element"></h2>
+    <h2 id="compatible"></h2>
+    <h2 id="incompatible"></h2>
+    <h2 id="goodTraits"></h2>
+    <h2 id="badTraits"></h2>
     <script src="main.js"></script>
 </body>
 </html>
