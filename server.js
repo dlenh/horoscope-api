@@ -103,6 +103,9 @@ app.get("/main.js", (req, res) => {
 
 app.get("/api/:name", (req, res) => {
     const sign = req.params.name.toLowerCase();
+    if (zodiac[sign]) {
+        res.json(zodiac[sign]);
+    }
 })
 
 app.listen(PORT, () => {
