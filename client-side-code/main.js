@@ -1,20 +1,27 @@
 document.querySelector("button").addEventListener("click", apiRequest);
 
-arr = ["Monkey", "Rooster", "Dog", "Pig", "Rat", "Ox", "Tiger", "Rabbit", "Dragon", "Snake", "Horse", "Goat"];
 
-function apiRequest() {
-    const year = document.querySelector("input").value;
+async function apiRequest() {
+    arr = ["Monkey", "Rooster", "Dog", "Pig", "Rat", "Ox", "Tiger", "Rabbit", "Dragon", "Snake", "Horse", "Goat"];
+
+    const year = +document.querySelector("input").value;
     const zodiac = document.querySelector("#zodiac");
-    // try {
-    //     const res = await fetch() 
-    //     const data = await res.json()
+    const animal = arr[year%12];
 
-    //     console.log(data)
-    // }
-    if (year === "") {
-        zodiac.innerText = "";
+    if (animal === undefined) {
+        zodiac.innerText = "Please enter a valid year"
     } else {
-       zodiac.innerText = arr[year%12];
+        zodiac.innerText = arr[year%12];
+    }
+
+    try {
+        const response = await fetch(`https://chinese-zodiac-api-demo.herokuapp.com/api/${animal}`)
+        const data = await response.json()
+
+        console.log(data);
+    }
+    catch(error) {
+        console.log(error)
     }
     return false;
 }
