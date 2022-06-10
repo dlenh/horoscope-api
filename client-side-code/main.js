@@ -19,6 +19,7 @@ function reset() {
 
 async function apiRequest() {
     reset();
+
     arr = ["Monkey", "Rooster", "Dog", "Pig", "Rat", "Ox", "Tiger", "Rabbit", "Dragon", "Snake", "Horse", "Goat"];
 
     const year = +document.querySelector("input").value;
@@ -26,7 +27,8 @@ async function apiRequest() {
     const animal = arr[year%12];
 
     if (animal === undefined) {
-        zodiac.innerText = "Please enter a valid year"
+        // zodiac.innerText = "Please enter a valid year"
+        alert("Please enter a valid year.");
     } else {
         zodiac.innerText += " " + arr[year%12];
     }
