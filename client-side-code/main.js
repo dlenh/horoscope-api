@@ -15,6 +15,7 @@ function reset() {
     incompatible.innerText = "Incompatible with: ";
     goodTraits.innerText = "Good traits: ";
     badTraits.innerText = "Bad traits: ";
+    image.src = "";
 }
 
 async function apiRequest() {
@@ -29,6 +30,7 @@ async function apiRequest() {
     if (animal === undefined) {
         // zodiac.innerText = "Please enter a valid year"
         alert("Please enter a valid year.");
+        document.querySelector("input").value = "";
     } else {
         zodiac.innerText += " " + arr[year%12];
     }
