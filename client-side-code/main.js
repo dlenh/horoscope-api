@@ -1,10 +1,18 @@
 document.querySelector("button").addEventListener("click", apiRequest);
+const zodiac = document.querySelector("#zodiac");
+const element = document.querySelector("#element");
+const compatible = document.querySelector("#compatible");
+const incompatible = document.querySelector("#incompatible");
+const goodTraits = document.querySelector("#goodTraits");
+const badTraits = document.querySelector("#badTraits");
+const image = document.querySelector("#image");
+
 
 function reset() {
-    document.querySelector("#zodiac").innerText = "Zodiac: ";
-    document.querySelector("#element").innerText = "Element: ";
-    document.querySelector("#compatible").innerText = "Compatible with: ";
-    document.querySelector("#incompatible").innerText = "Incompatible with: ";
+    zodiac.innerText = "Zodiac: ";
+    element.innerText = "Element: ";
+    compatible.innerText = "Compatible with: ";
+    incompatible.innerText = "Incompatible with: ";
 }
 
 async function apiRequest() {
@@ -12,7 +20,7 @@ async function apiRequest() {
     arr = ["Monkey", "Rooster", "Dog", "Pig", "Rat", "Ox", "Tiger", "Rabbit", "Dragon", "Snake", "Horse", "Goat"];
 
     const year = +document.querySelector("input").value;
-    const zodiac = document.querySelector("#zodiac");
+    
     const animal = arr[year%12];
 
     if (animal === undefined) {
@@ -26,11 +34,11 @@ async function apiRequest() {
         const data = await response.json()
 
         console.log(data);
-        document.querySelector("#element").innerText += " " + data.element[0].toUpperCase() + data.element.slice(1);
-        document.querySelector("#compatible").innerText += " " + data.compatible.map(x => " " + x[0].toUpperCase() + x.slice(1));
-        document.querySelector("#incompatible").innerText += " " + data.incompatible.map(x => " " + x[0].toUpperCase() + x.slice(1));
+        element.innerText += " " + data.element[0].toUpperCase() + data.element.slice(1);
+        compatible.innerText += " " + data.compatible.map(x => " " + x[0].toUpperCase() + x.slice(1));
+        incompatible.innerText += " " + data.incompatible.map(x => " " + x[0].toUpperCase() + x.slice(1));
         console.log(data.compatible)
-        document.querySelector("#image").src = data.image;
+        image.src = data.image;
     }
     catch(error) {
         console.log(error)
