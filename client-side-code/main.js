@@ -3,6 +3,8 @@ document.querySelector("button").addEventListener("click", apiRequest);
 function reset() {
     document.querySelector("#zodiac").innerText = "Zodiac: ";
     document.querySelector("#element").innerText = "Element: ";
+    document.querySelector("#compatible").innerText = "Compatible with: ";
+    document.querySelector("#incompatible").innerText = "Incompatible with: ";
 }
 
 async function apiRequest() {
@@ -24,7 +26,10 @@ async function apiRequest() {
         const data = await response.json()
 
         console.log(data);
-        document.querySelector("#element").innerText += " " + data.element;
+        document.querySelector("#element").innerText += " " + data.element[0].toUpperCase() + data.element.slice(1);
+        document.querySelector("#compatible").innerText += " " + data.compatible.map(x => " " + x[0].toUpperCase() + x.slice(1));
+        document.querySelector("#incompatible").innerText += " " + data.incompatible.map(x => " " + x[0].toUpperCase() + x.slice(1));
+        console.log(data.compatible)
         document.querySelector("#image").src = data.image;
     }
     catch(error) {
