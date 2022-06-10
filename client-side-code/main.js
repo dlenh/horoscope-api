@@ -13,6 +13,8 @@ function reset() {
     element.innerText = "Element: ";
     compatible.innerText = "Compatible with: ";
     incompatible.innerText = "Incompatible with: ";
+    goodTraits.innerText = "Good traits: ";
+    badTraits.innerText = "Bad traits: ";
 }
 
 async function apiRequest() {
@@ -37,7 +39,8 @@ async function apiRequest() {
         element.innerText += " " + data.element[0].toUpperCase() + data.element.slice(1);
         compatible.innerText += " " + data.compatible.map(x => " " + x[0].toUpperCase() + x.slice(1));
         incompatible.innerText += " " + data.incompatible.map(x => " " + x[0].toUpperCase() + x.slice(1));
-        console.log(data.compatible)
+        goodTraits.innerText += " " + data["good traits"].map(x => " " + x[0].toUpperCase() + x.slice(1));
+        badTraits.innerText += " " + data["bad traits"].map(x => " " + x[0].toUpperCase() + x.slice(1));
         image.src = data.image;
     }
     catch(error) {
