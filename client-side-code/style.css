@@ -3,3 +3,12 @@
     margin: 0;
     padding: 0;
 } */
+
+img {
+    height: 50vh;
+    width: auto;
+}
+
+body {
+    text-align: center;
+}
