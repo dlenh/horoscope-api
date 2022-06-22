@@ -1,1 +1,1 @@
-# horoscope-api
+# zodiac-api
